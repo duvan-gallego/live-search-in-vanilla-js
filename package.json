@@ -1,5 +1,5 @@
 {
-  "name": "live-search-in-vanilla",
+  "name": "live-search-in-vanilla-js",
   "version": "1.0.0",
   "description": "This is a basic live search with some accessibility characteristics in pure javascript, css and html",
   "main": "index.js",
