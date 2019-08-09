@@ -17,10 +17,24 @@ input[type=text] {
 
 .input_img {
   position:absolute;
-  bottom:5px;
+  top:23px;
   right:-7px;
   width:36px;
   height:36px;
+}
+
+#search_results {
+  list-style-type: none;
+  padding-left: 5px;
+  margin-top: 4px;
+  width: 95%;
+}
+
+#search_results > li {
+  height: 30px;
+  border: 1px solid #eeeeef;
+  line-height: 30px;
+  padding-left: 5px;
 }
 
 @media only screen and (max-width: 900px) {
