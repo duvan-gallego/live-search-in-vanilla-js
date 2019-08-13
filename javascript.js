@@ -1,6 +1,17 @@
 (function() {  
   const inputSearch = document.getElementById("inputSearch");
-  const wrapper = document.getElementById("wrapper");  
+  const wrapper = document.getElementById("wrapper");
+  let updown = 0;  
+
+  // Reset search
+  function resetSearch() {
+    // Delete the old list
+    const oldList = document.getElementById("search_results");
+    if (oldList) {
+      wrapper.removeChild(oldList);
+    }
+    updown = 0;
+  }
 
   // Function to make the apiCall
   function doLiveSearch( ev, keywords ) {
@@ -10,11 +21,7 @@
       arrowDown = 40,
       MIN_CHARACTERS_FOR_SEARCH = 2;
 
-    // Delete the old list
-    const oldList = document.getElementById("search_results");
-    if (oldList) {
-      wrapper.removeChild(oldList);
-    }
+    resetSearch();
     
     if( keywords == '' || 
       ev.keyCode == arrowUp || 
@@ -30,7 +37,7 @@
     list.id = 'search_results';
     let listElement;
     for( var i in results ) {
-      listElement = document.createElement('li');
+      listElement = document.createElement('li');      
       listElement.appendChild( document.createTextNode(results[i].name) );
       list.appendChild( listElement );
     }
@@ -49,17 +56,19 @@
   inputSearch.onkeyup = function(ev) {   
     doLiveSearch(ev, this.value); 
   };
+  
   // Manage updown events
   inputSearch.onkeydown = function(ev) { 
     upDownEvent(ev, this.value);
   }
+
   // Try to make the search if the user has values in the input, when gain focus
   inputSearch.onfocus = function(ev) { 
     doLiveSearch(ev, this.value);
   }
   // Hide list when the input lost the focus
   inputSearch.onblur = function(ev) { 
-    console.log('blur');
+    resetSearch();      
   }
 
   document.onkeydown = function(ev) {

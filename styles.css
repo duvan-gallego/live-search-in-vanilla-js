@@ -37,6 +37,11 @@ input[type=text] {
   padding-left: 5px;
 }
 
+#search_results > li:hover { 
+  background: #24da1e;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 900px) {
   .wrapper {
     width: 70%;
