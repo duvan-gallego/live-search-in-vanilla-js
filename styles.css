@@ -42,6 +42,20 @@ input[type=text] {
   cursor: pointer;
 }
 
+.highlighted {
+  background: #24da1e;
+}
+
+.countrySelected {
+  margin: 30px;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.countrySelected > span {
+  color: #56b72d;
+}
+
 @media only screen and (max-width: 900px) {
   .wrapper {
     width: 70%;
